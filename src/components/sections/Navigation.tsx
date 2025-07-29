@@ -6,12 +6,16 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { useSmartNavigation } from "@/hooks/useSmartNavigation";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { handleNavClick, isHomePage } = useSmartNavigation();
+  const activeSection = useScrollSpy(["projects", "timeline", "volunteer", "contact"]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,14 +33,22 @@ const Navigation = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavItemClick = (href: string, event: React.MouseEvent) => {
     setIsOpen(false);
-    if (href.startsWith("#")) {
-      const element = document.getElementById(href.slice(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    handleNavClick(href, event);
+  };
+
+  const isActiveNavItem = (href: string) => {
+    if (href === "/") {
+      return pathname === "/" && (!isHomePage || !activeSection);
     }
+    
+    if (href.startsWith("#") && isHomePage) {
+      const sectionId = href.slice(1);
+      return activeSection === sectionId;
+    }
+    
+    return pathname === href;
   };
 
   return (
@@ -62,20 +74,18 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
-                onClick={() => handleNavClick(item.href)}
+                onClick={(e) => handleNavItemClick(item.href, e)}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.href || 
-                  (item.href === "/" && pathname === "/")
+                  "text-sm font-medium transition-colors hover:text-primary cursor-pointer",
+                  isActiveNavItem(item.href)
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
             <ThemeToggle />
             <Button
@@ -112,20 +122,18 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.href}
-                  href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavItemClick(item.href, e)}
                   className={cn(
-                    "block px-3 py-2 text-base font-medium transition-colors hover:text-primary",
-                    pathname === item.href || 
-                    (item.href === "/" && pathname === "/")
+                    "block w-full text-left px-3 py-2 text-base font-medium transition-colors hover:text-primary",
+                    isActiveNavItem(item.href)
                       ? "text-primary"
                       : "text-muted-foreground"
                   )}
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
               <div className="px-3 py-2">
                 <Button
