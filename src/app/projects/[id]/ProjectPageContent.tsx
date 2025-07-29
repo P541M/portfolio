@@ -3,7 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, Clock } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projects, getStatusColor, formatDate } from "@/data/projects";
@@ -14,14 +20,17 @@ interface ProjectPageContentProps {
   project: Project;
 }
 
-export default function ProjectPageContent({ project }: ProjectPageContentProps) {
+export default function ProjectPageContent({
+  project,
+}: ProjectPageContentProps) {
   const { navigateToSection } = useSmartNavigation();
 
   // Get related projects (same technologies or similar)
   const relatedProjects = projects
-    .filter((p) => 
-      p.id !== project.id && 
-      p.technologies.some(tech => project.technologies.includes(tech))
+    .filter(
+      (p) =>
+        p.id !== project.id &&
+        p.technologies.some((tech) => project.technologies.includes(tech))
     )
     .slice(0, 3);
 
@@ -130,60 +139,10 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             </CardHeader>
             <CardContent>
               <div className="prose prose-gray dark:prose-invert max-w-none">
-                <p className="text-lg leading-relaxed">
-                  {project.description}
-                </p>
+                <p className="text-lg leading-relaxed">{project.description}</p>
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Key Features & Highlights */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Project Highlights</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Technology Stack</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Built with modern technologies including {project.technologies.slice(0, 3).join(", ")}
-                  {project.technologies.length > 3 && ` and ${project.technologies.length - 3} more`}.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Current Status</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-2">
-                  <Badge className={getStatusColor(project.state)}>
-                    {project.state}
-                  </Badge>
-                  <p className="text-sm text-muted-foreground">
-                    {project.state === "Deployed" && "Live and accessible"}
-                    {project.state === "In Development" && "Actively being developed"}
-                    {project.state === "In Testing" && "Currently in testing phase"}
-                    {project.state === "Discontinued" && "No longer maintained"}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Development Type</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  {project.github ? "Open source project available on GitHub" : "Professional/commercial project"}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
 
         {/* Related Projects */}
@@ -192,7 +151,10 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             <h2 className="text-2xl font-bold mb-6">Related Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {relatedProjects.map((relatedProject) => (
-                <Card key={relatedProject.id} className="hover:shadow-lg transition-shadow">
+                <Card
+                  key={relatedProject.id}
+                  className="hover:shadow-lg transition-shadow"
+                >
                   <div className="relative aspect-video overflow-hidden rounded-t-lg">
                     <Image
                       src={relatedProject.image}
@@ -202,7 +164,9 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                     />
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-lg">{relatedProject.title}</CardTitle>
+                    <CardTitle className="text-lg">
+                      {relatedProject.title}
+                    </CardTitle>
                     <CardDescription>
                       {relatedProject.description.substring(0, 120)}...
                     </CardDescription>
