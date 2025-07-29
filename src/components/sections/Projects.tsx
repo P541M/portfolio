@@ -155,7 +155,7 @@ const Projects = () => {
           >
             {displayedProjects.map((project) => (
               <motion.div key={project.id} variants={itemVariants}>
-                <Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <Card className="group h-full overflow-hidden hover-lift shadow-smooth hover:shadow-smooth-lg border-border/50">
                   {/* Project Image */}
                   <div className="relative aspect-video overflow-hidden">
                     <Image

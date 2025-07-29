@@ -13,9 +13,9 @@ interface TimelineCardProps {
 
 export function TimelineCard({ item, getIcon }: TimelineCardProps) {
   return (
-    <Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
+    <Card className="group h-full overflow-hidden hover-lift shadow-smooth hover:shadow-smooth-lg flex flex-col border-border/50">
       {/* Card Header with Company Name */}
-      <CardHeader className="relative bg-gradient-to-r from-primary/90 to-primary text-primary-foreground">
+      <CardHeader className="relative gradient-primary text-primary-foreground">
         <CardTitle className="text-xl font-bold">
           {item.company}
         </CardTitle>

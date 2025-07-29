@@ -87,7 +87,7 @@ const Hero = () => {
               </motion.h1>
               <motion.div 
                 variants={itemVariants}
-                className="mt-3 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent md:mt-4"
+                className="mt-3 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent md:mt-4 animate-fade-in"
               />
             </div>
 
@@ -176,7 +176,7 @@ const Hero = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={link.name}
-                        className="group flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-primary shadow-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground md:h-10 md:w-10"
+                        className="group flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-primary shadow-smooth transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-1 hover:shadow-smooth-md md:h-10 md:w-10"
                       >
                         <IconComponent className="h-4 w-4 md:h-5 md:w-5" />
                       </Link>
