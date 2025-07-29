@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Back Button */}
         <div className="mb-8">
           <Button variant="ghost" asChild>
-            <Link href="/#projects" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Projects
             </Link>
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </Button>
                 )}
                 <Button variant="outline" asChild>
-                  <Link href="/#contact">
+                  <Link href="/">
                     Get In Touch
                   </Link>
                 </Button>

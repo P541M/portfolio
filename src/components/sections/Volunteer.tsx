@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code, Cog, Mic } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { VolunteerCard } from "@/components/ui/volunteer-card";
 import { volunteerData } from "@/data/volunteer";
 
 const Volunteer = () => {
@@ -102,49 +101,7 @@ const Volunteer = () => {
           >
             {volunteerData.map((volunteer) => (
               <motion.div key={volunteer.id} variants={itemVariants}>
-                <Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  {/* Card Header with Company Name */}
-                  <CardHeader className="relative bg-gradient-to-r from-primary/90 to-primary text-primary-foreground">
-                    <CardTitle className="text-xl font-bold">
-                      {volunteer.company}
-                    </CardTitle>
-                  </CardHeader>
-
-                  {/* Card Content */}
-                  <CardContent className="flex-grow p-6">
-                    {volunteer.roles.map((role, idx) => (
-                      <div key={idx} className="mb-6">
-                        <div className="flex items-center mb-3">
-                          <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shadow-sm">
-                            {role.icon && getIcon(role.icon)}
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-foreground">
-                              {role.title}
-                            </h4>
-                          </div>
-                        </div>
-                        <div className="ml-15">
-                          <p className="mb-2 text-sm italic text-primary/80">
-                            {role.duration}
-                          </p>
-                          <p className="text-sm leading-relaxed text-muted-foreground">
-                            {role.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </CardContent>
-
-                  {/* Footer with Category */}
-                  <div className="border-t border-border bg-muted/30 px-6 py-3">
-                    <div className="flex justify-end">
-                      <Badge variant="secondary" className="text-xs">
-                        {volunteer.category}
-                      </Badge>
-                    </div>
-                  </div>
-                </Card>
+                <VolunteerCard volunteer={volunteer} getIcon={getIcon} />
               </motion.div>
             ))}
           </motion.div>

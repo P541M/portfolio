@@ -15,9 +15,7 @@ import {
   Building,
   ExternalLink
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { TimelineCard } from "@/components/ui/timeline-card";
 import { timelineData } from "@/data/timeline";
 
 const Timeline = () => {
@@ -129,69 +127,7 @@ const Timeline = () => {
           >
             {timelineData.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>
-                <Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  {/* Card Header with Company Name */}
-                  <CardHeader className="relative bg-gradient-to-r from-primary/90 to-primary text-primary-foreground">
-                    <CardTitle className="text-xl font-bold">
-                      {item.company}
-                    </CardTitle>
-                  </CardHeader>
-
-                  {/* Card Content with Roles */}
-                  <CardContent className="flex-grow p-6">
-                    {item.roles.map((role, idx) => (
-                      <div key={idx} className="relative mb-6">
-                        <div className="mb-2 flex items-center">
-                          <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 shadow-sm">
-                            {role.icon && getIcon(role.icon)}
-                          </div>
-                          <h4 className="font-medium text-foreground">
-                            {role.title}
-                          </h4>
-                        </div>
-                        <div className="ml-13">
-                          <p className="mb-2 text-sm italic text-primary/80">
-                            {role.duration}
-                          </p>
-                          <p className="text-sm leading-relaxed text-muted-foreground">
-                            {role.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </CardContent>
-
-                  {/* Work Term Report Link */}
-                  {item.hasWorkTermReport && item.reportPath && (
-                    <div className="border-t border-border bg-primary/5 p-4">
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="w-full bg-primary/10 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground"
-                      >
-                        <a
-                          href={item.reportPath}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2"
-                        >
-                          <span>View Work Term Report</span>
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    </div>
-                  )}
-
-                  {/* Job Type Footer */}
-                  <div className="border-t border-border bg-muted/30 px-6 py-3">
-                    <div className="flex justify-end">
-                      <Badge variant="secondary" className="text-xs">
-                        {item.category}
-                      </Badge>
-                    </div>
-                  </div>
-                </Card>
+                <TimelineCard item={item} getIcon={getIcon} />
               </motion.div>
             ))}
           </motion.div>

@@ -23,16 +23,16 @@ const Navigation = () => {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#timeline", label: "Experience" },
-    { href: "/#volunteer", label: "Volunteer" },
-    { href: "/#contact", label: "Contact" },
+    { href: "#projects", label: "Projects" },
+    { href: "#timeline", label: "Experience" },
+    { href: "#volunteer", label: "Volunteer" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    if (href.startsWith("/#")) {
-      const element = document.getElementById(href.slice(2));
+    if (href.startsWith("#")) {
+      const element = document.getElementById(href.slice(1));
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
