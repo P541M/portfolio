@@ -165,35 +165,6 @@ const ExperienceTeaser = () => {
             ))}
           </motion.div>
 
-          {/* Stats Section */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8"
-          >
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">3+</div>
-              <div className="text-sm text-muted-foreground">
-                Years Experience
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">
-                {timelineData.filter((item) => item.type === "work").length}
-              </div>
-              <div className="text-sm text-muted-foreground">Companies</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">10+</div>
-              <div className="text-sm text-muted-foreground">Technologies</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">5+</div>
-              <div className="text-sm text-muted-foreground">
-                Projects Delivered
-              </div>
-            </div>
-          </motion.div>
-
           {/* CTA Section */}
           <motion.div variants={itemVariants} className="text-center pt-8">
             <div className="space-y-4">

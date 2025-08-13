@@ -167,35 +167,6 @@ const VolunteerTeaser = () => {
             ))}
           </motion.div>
 
-          {/* Impact Stats */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8"
-          >
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">50+</div>
-              <div className="text-sm text-muted-foreground">
-                Students Mentored
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">
-                {volunteerData.length}
-              </div>
-              <div className="text-sm text-muted-foreground">Organizations</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">2+</div>
-              <div className="text-sm text-muted-foreground">Years Active</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">∞</div>
-              <div className="text-sm text-muted-foreground">
-                Impact Created
-              </div>
-            </div>
-          </motion.div>
-
           {/* Values Highlight */}
           <motion.div
             variants={itemVariants}
