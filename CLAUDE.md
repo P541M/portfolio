@@ -26,12 +26,11 @@ This is a **Next.js 15** portfolio website using the **App Router** architecture
 ### Core Technologies
 - **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript with strict mode enabled
-- **Styling**: Tailwind CSS with custom design system
+- **Styling**: Tailwind CSS with custom design system (dark mode only)
 - **UI Components**: shadcn/ui components with Radix UI primitives
 - **Animations**: Framer Motion for page transitions and micro-interactions
 - **Forms**: React Hook Form with Zod validation
 - **Email**: Nodemailer integration for contact form
-- **Theme**: next-themes for dark/light mode switching
 
 ### Directory Structure
 - `src/app/` - Next.js App Router pages and API routes
@@ -52,9 +51,9 @@ This is a **Next.js 15** portfolio website using the **App Router** architecture
 - UI components follow shadcn/ui patterns with consistent prop interfaces
 
 **Styling System**:
-- Uses Tailwind CSS with CSS variables for theming
+- Uses Tailwind CSS with CSS variables for dark mode theming
 - Custom animations defined in `tailwind.config.ts`
-- Dark mode implemented with `next-themes` and CSS classes
+- Dark mode only - no theme switching functionality
 
 **Type Safety**: 
 - Comprehensive TypeScript interfaces in `src/types/index.ts`
@@ -73,7 +72,6 @@ The contact form uses Nodemailer with Gmail SMTP. Environment variables required
 ### State Management
 - No global state management library used
 - Local component state with React hooks
-- Theme state managed by `next-themes`
 - Form state managed by `react-hook-form`
 
 ### Performance Optimizations

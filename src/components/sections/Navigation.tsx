@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useSmartNavigation } from "@/hooks/useSmartNavigation";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
@@ -87,7 +86,6 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <ThemeToggle />
             <Button
               asChild
               size="sm"
@@ -104,8 +102,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
+          <div className="md:hidden">
             <Button
               variant="ghost"
               size="sm"
