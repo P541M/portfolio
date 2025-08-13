@@ -7,10 +7,11 @@ import Link from "next/link";
 
 const Hero = () => {
 
-  const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+
+  const handleExploreClick = () => {
+    const projectsSection = document.querySelector("[data-section='projects-teaser']");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -120,8 +121,18 @@ const Hero = () => {
                 >
                   <Button
                     size="lg"
-                    className="group"
+                    onClick={handleExploreClick}
+                    className="group bg-primary hover:bg-primary/90"
+                  >
+                    <span>Explore My Work</span>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    size="lg"
                     asChild
+                    className="group border-primary/20 hover:bg-primary/5"
                   >
                     <a
                       href="https://docs.google.com/document/d/14y5puVSbSHT0-GetZlJhusbWYR7hd1e_/edit?usp=sharing&ouid=100426459370719602883&rtpof=true&sd=true"
@@ -130,18 +141,7 @@ const Hero = () => {
                     >
                       <Download className="mr-2 h-4 w-4" />
                       View Resume
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
-                  </Button>
-                  
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    onClick={handleContactClick}
-                    className="group"
-                  >
-                    <Mail className="mr-2 h-4 w-4" />
-                    Contact Me
                   </Button>
                 </motion.div>
               </div>

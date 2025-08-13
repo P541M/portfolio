@@ -83,8 +83,8 @@ const config: Config = {
         "fade-in-up": "fade-in-up 0.5s ease-out",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ["var(--font-inconsolata)", "Inconsolata", "Monaco", "Consolas", "monospace"],
+        mono: ["var(--font-inconsolata)", "Inconsolata", "Monaco", "Consolas", "monospace"],
       },
     },
   },
