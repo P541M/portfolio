@@ -56,7 +56,7 @@ const Volunteer = () => {
   // Don't render anything until mounted (prevents hydration issues)
   if (!mounted) {
     return (
-      <section id="volunteer" className="min-h-screen bg-background pt-12 pb-6">
+      <section id="volunteer" className="min-h-screen bg-muted/30 pt-12 pb-6">
         <div className="container px-4 mx-auto sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
@@ -77,7 +77,7 @@ const Volunteer = () => {
   }
 
   return (
-    <section id="volunteer" className="min-h-screen bg-background pt-12 pb-6">
+    <section id="volunteer" className="min-h-screen bg-muted/30 pt-12 pb-6">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -112,15 +112,8 @@ const Volunteer = () => {
               Interested in collaboration or volunteer opportunities?
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                const contactSection = document.getElementById("contact");
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
             >
               Get In Touch
               <svg

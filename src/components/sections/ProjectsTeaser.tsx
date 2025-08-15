@@ -81,7 +81,7 @@ const ProjectsTeaser = () => {
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -3 }}
                 transition={{ duration: 0.3 }}
               >
                 <Card className="group h-full overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift bg-card/50 backdrop-blur-sm">

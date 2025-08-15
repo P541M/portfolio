@@ -96,7 +96,7 @@ const Projects = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
       },
     },
   };
