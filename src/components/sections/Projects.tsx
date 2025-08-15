@@ -60,7 +60,7 @@ const Projects = () => {
   // Don't render anything until mounted (prevents hydration issues)
   if (!mounted) {
     return (
-      <section id="projects" className="min-h-screen bg-muted/30 py-6">
+      <section id="projects" className="min-h-screen bg-muted/30 pt-12 pb-6">
         <div className="container px-4 mx-auto sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
@@ -111,7 +111,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="min-h-screen bg-muted/30 py-6">
+    <section id="projects" className="min-h-screen bg-muted/30 pt-12 pb-6">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
